@@ -53,6 +53,7 @@ And now the home team.
 fit <- lm(home_points ~ temperature, data = scores_weather)
 summary(fit)
 ```
+
 The numbers confirm the question that the home team has the advantage in any weather condition. This is something that we probably already knew. 
 
 How does weather really effect the game? College football has undergone a huge change with Quarterbacks dominating weekly. However, do they still dominate when there is rain present?
@@ -60,6 +61,7 @@ How does weather really effect the game? College football has undergone a huge c
 ```{r}
 ggplot() + geom_line(data = game_weather, aes(x=off_passing_downs_success_rate, y=precipitation)) 
 ```
+
 This graph shows the success rate of passing and precipitation in the games. It would appear the rain does not have too much of an effect on passing. 
 
 So we know that precipitation doesn't effect the passing game as much, but does it effect the rest of the offense being explosive? Explosive plays are where teams can die or come back from a game. Is it hard to get an explosive play when there is rain. Will it rain on the offensive's parade? 
@@ -72,14 +74,3 @@ ggplot() +
     alpha = 0.3) + 
   scale_size(range = c(0, 15), name="Explosiveness")
 ```
-
-
-
-
-
-
-
-
-
-
-
