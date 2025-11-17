@@ -1,0 +1,17 @@
+{
+  "hash": "b58234f5a4770db8737e98e1e423f7ce",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"How Weather effects College Football\"\nauthor: \"Duke Rood\"\ndate: '2025-11-17'\ncategories: [collegefootball, weather, offense]\nimage: \"image.png\"\nformat: \n  html:\n    code-fold: true\n---\n\nIt is clear that football is the biggest game that is played in every type of weather. From smoking hot to freezing cold, football has it all.\n\nHow does these different weather conditions, effect the game we know and love.\n\nFirst, lets take a look at how home field advantage comes to play. Does the home team score more then the away team, in different weather conditions?\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(tidyverse)\nlibrary(dplyr)\nlibrary(ggplot2)\n\nscores <- read_csv(\"scores_2024.csv\")\ngames <- read_csv(\"games_2024.csv\")\n\nggplot() + \n  geom_point(data=scores, aes(x=weather.temperature, y=awayTeam.points))\n```\n\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-1-1.png){width=672}\n:::\n:::\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nggplot() + \n  geom_point(data=scores, aes(x=weather.temperature, y=awayTeam.points)) +\n  geom_smooth(data=scores, aes(x=weather.temperature, y=awayTeam.points), method=\"lm\")\n```\n\n::: {.cell-output .cell-output-stderr}\n\n```\n`geom_smooth()` using formula = 'y ~ x'\n```\n\n\n:::\n\n::: {.cell-output .cell-output-stderr}\n\n```\nWarning: Removed 2 rows containing non-finite outside the scale range\n(`stat_smooth()`).\n```\n\n\n:::\n\n::: {.cell-output .cell-output-stderr}\n\n```\nWarning: Removed 2 rows containing missing values or values outside the scale range\n(`geom_point()`).\n```\n\n\n:::\n\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-2-1.png){width=672}\n:::\n:::\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nggplot() + \n  geom_point(data=scores, aes(x=weather.temperature, y=homeTeam.points)) +\n  geom_smooth(data=scores, aes(x=weather.temperature, y=homeTeam.points), method=\"lm\")\n```\n\n::: {.cell-output .cell-output-stderr}\n\n```\n`geom_smooth()` using formula = 'y ~ x'\n```\n\n\n:::\n\n::: {.cell-output .cell-output-stderr}\n\n```\nWarning: Removed 2 rows containing non-finite outside the scale range\n(`stat_smooth()`).\n```\n\n\n:::\n\n::: {.cell-output .cell-output-stderr}\n\n```\nWarning: Removed 2 rows containing missing values or values outside the scale range\n(`geom_point()`).\n```\n\n\n:::\n\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-3-1.png){width=672}\n:::\n:::\n\n\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
