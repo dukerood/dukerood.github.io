@@ -14,32 +14,320 @@
 <item>
   <title>How Weather effects College Football</title>
   <dc:creator>Duke Rood</dc:creator>
-  <link>https://your-website-url.example.com/posts/nebraska-mens-basketball-national-title-run/</link>
+  <link>https://your-website-url.example.com/posts/does-weather-affect-college-football-games/</link>
   <description><![CDATA[ 
 
 
 
 
 
-<p>Nebraska is the best.</p>
+<p>It is clear that football is the biggest game that is played in every type of weather. From smoking hot to freezing cold, football has it all.</p>
+<p>How does these different weather conditions, effect the game we know and love.</p>
+<p>First, lets take a look at how home field advantage comes to play. Does the home team score more then the away team, in different weather conditions?</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">library</span>(tidyverse)</span></code></pre></div></div>
+font-style: inherit;">library</span>(tidyverse)</span>
+<span id="cb1-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(dplyr)</span>
+<span id="cb1-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(ggplot2)</span>
+<span id="cb1-4"></span>
+<span id="cb1-5">scores <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">read_csv</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"scores_2024.csv"</span>)</span>
+<span id="cb1-6">games <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">read_csv</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"games_2024.csv"</span>)</span>
+<span id="cb1-7">weather <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">read_csv</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"weather_2024.csv"</span>)</span>
+<span id="cb1-8"></span>
+<span id="cb1-9">game_weather <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> games <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">inner_join</span>(weather) </span>
+<span id="cb1-10">scores_weather <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> scores <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">inner_join</span>(weather)</span></code></pre></div></div>
 </details>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.2
-✔ ggplot2   4.0.0     ✔ tibble    3.3.0
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.1.0     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<p>Looking at the away team first.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> </span>
+<span id="cb2-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_point</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data=</span>scores_weather, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x=</span>temperature, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y=</span>away_points)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb2-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_smooth</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data=</span>scores_weather, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x=</span>temperature, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y=</span>away_points), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">method=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"lm"</span>)</span></code></pre></div></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://your-website-url.example.com/posts/does-weather-affect-college-football-games/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>And Now the home team</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> </span>
+<span id="cb3-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_point</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data=</span>scores_weather, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x=</span>temperature, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y=</span>home_points)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb3-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_smooth</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data=</span>scores_weather, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x=</span>temperature, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y=</span>home_points), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">method=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"lm"</span>)</span></code></pre></div></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://your-website-url.example.com/posts/does-weather-affect-college-football-games/index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Now, from the looks of it, the home team has the advantage. But lets see what the numbers say. Again, starting with the away team.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">fit <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lm</span>(away_points <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> temperature, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> scores_weather)</span>
+<span id="cb4-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">summary</span>(fit)</span></code></pre></div></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = away_points ~ temperature, data = scores_weather)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-24.451 -10.108  -2.084   9.802  60.668 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 25.19830    1.33581   18.86   &lt;2e-16 ***
+temperature -0.02550    0.01875   -1.36    0.174    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 14.47 on 3173 degrees of freedom
+  (1 observation deleted due to missingness)
+Multiple R-squared:  0.0005824, Adjusted R-squared:  0.0002674 
+F-statistic: 1.849 on 1 and 3173 DF,  p-value: 0.174</code></pre>
+</div>
+</div>
+<p>And now the home team.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">fit <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lm</span>(home_points <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> temperature, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> scores_weather)</span>
+<span id="cb6-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">summary</span>(fit)</span></code></pre></div></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = home_points ~ temperature, data = scores_weather)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-29.840 -11.973  -1.367  10.510  67.141 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 27.81273    1.45895  19.064   &lt;2e-16 ***
+temperature  0.02019    0.02048   0.986    0.324    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 15.81 on 3173 degrees of freedom
+  (1 observation deleted due to missingness)
+Multiple R-squared:  0.0003061, Adjusted R-squared:  -8.965e-06 
+F-statistic: 0.9715 on 1 and 3173 DF,  p-value: 0.3244</code></pre>
+</div>
+</div>
+<p>The numbers confirm the question that the home team has the advantage in any weather condition. This is something that we probably already knew.</p>
+<p>How does weather really effect the game? College football has undergone a huge change with Quarterbacks dominating weekly. However, do they still dominate when there is rain present?</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_line</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> game_weather, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x=</span>off_passing_downs_success_rate, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y=</span>precipitation)) </span></code></pre></div></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://your-website-url.example.com/posts/does-weather-affect-college-football-games/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This graph shows the success rate of passing and precipitation in the games. It would appear the rain does not have too much of an effect on passing.</p>
+<p>So we know that precipitation doesn’t effect the passing game as much, but does it effect the rest of the offense being explosive? Explosive plays are where teams can die or come back from a game. Is it hard to get an explosive play when there is rain. Will it rain on the offensive’s parade?</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> </span>
+<span id="cb9-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_point</span>(</span>
+<span id="cb9-3">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data=</span>game_weather, </span>
+<span id="cb9-4">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x=</span>precipitation, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y=</span>off_explosiveness, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size=</span>off_explosiveness),</span>
+<span id="cb9-5">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">alpha =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.3</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> </span>
+<span id="cb9-6">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">scale_size</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">range =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">15</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">name=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Explosiveness"</span>)</span></code></pre></div></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://your-website-url.example.com/posts/does-weather-affect-college-football-games/index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 
@@ -49,9 +337,9 @@ font-style: inherit;">library</span>(tidyverse)</span></code></pre></div></div>
   <category>collegefootball</category>
   <category>weather</category>
   <category>offense</category>
-  <guid>https://your-website-url.example.com/posts/nebraska-mens-basketball-national-title-run/</guid>
+  <guid>https://your-website-url.example.com/posts/does-weather-affect-college-football-games/</guid>
   <pubDate>Mon, 17 Nov 2025 06:00:00 GMT</pubDate>
-  <media:content url="https://your-website-url.example.com/posts/nebraska-mens-basketball-national-title-run/image.png" medium="image" type="image/png"/>
+  <media:content url="https://your-website-url.example.com/posts/does-weather-affect-college-football-games/maxresdefault.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>

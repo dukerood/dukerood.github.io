@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://your-website-url.example.com/data.html</loc>
-    <lastmod>2025-11-17T05:04:49.382Z</lastmod>
+    <loc>https://your-website-url.example.com/about.html</loc>
+    <lastmod>2025-11-06T23:29:37.271Z</lastmod>
+  </url>
+  <url>
+    <loc>https://your-website-url.example.com/posts/does-weather-affect-college-football-games/index.html</loc>
+    <lastmod>2025-11-17T20:52:56.468Z</lastmod>
   </url>
   <url>
     <loc>https://your-website-url.example.com/index.html</loc>
     <lastmod>2025-11-04T23:49:27.461Z</lastmod>
-  </url>
-  <url>
-    <loc>https://your-website-url.example.com/posts/nebraska-mens-basketball-national-title-run/index.html</loc>
-    <lastmod>2025-11-17T05:51:01.559Z</lastmod>
-  </url>
-  <url>
-    <loc>https://your-website-url.example.com/about.html</loc>
-    <lastmod>2025-11-06T23:29:37.271Z</lastmod>
   </url>
 </urlset>
