@@ -313,53 +313,203 @@ $ weatherCondition     &lt;chr&gt; "Fair", "Fair", NA, "Cloudy", NA, NA, NA, NA,
 3 401643696   2024    1    regular 2024-08-25T00:00:00.000Z        FALSE
 4 401643858   2024    1    regular 2024-08-25T03:59:00.000Z        FALSE
 5 401628458   2024    1    regular 2024-08-29T22:00:00.000Z        FALSE
-6 401644727   2024    1    regular 2024-08-29T23:00:00.000Z        FALSE
+6 401628581   2024    1    regular 2024-08-29T23:00:00.000Z        FALSE
   completed neutralSite conferenceGame attendance venueId
 1      TRUE        TRUE           TRUE      47998    3504
 2      TRUE       FALSE          FALSE      17314    3971
 3      TRUE       FALSE          FALSE      20263    3816
 4      TRUE       FALSE          FALSE      12206    7220
 5      TRUE       FALSE          FALSE      47803    6577
-6      TRUE       FALSE          FALSE      16400    3965
+6      TRUE       FALSE          FALSE      29450    3630
                                   venue homeId     homeTeam homeClassification
 1                         Aviva Stadium     59 Georgia Tech                fbs
 2               University Stadium (NM)    167   New Mexico                fbs
 3                        Mackay Stadium   2440       Nevada                fbs
 4 Clarence T.C. Ching Athletics Complex     62      Hawai'i                fbs
 5                           SHI Stadium    164      Rutgers                fbs
-6                            UB Stadium   2084      Buffalo                fbs
+6 Allegacy Federal Credit Union Stadium    154  Wake Forest                fbs
   homeConference homePoints homePostgameWinProbability homePregameElo
 1            ACC         24                  0.9913955           1497
 2  Mountain West         31                  0.3011007           1234
 3  Mountain West         24                  0.1027095           1222
 4  Mountain West         35                  0.9564690           1227
 5        Big Ten         44                  0.9969831           1460
-6   Mid-American         30                  0.9963645           1357
-  homePostgameElo awayId       awayTeam awayClassification awayConference
-1            1513     52  Florida State                fbs            ACC
-2            1234    147  Montana State                fcs        Big Sky
-3            1243   2567            SMU                fbs            ACC
-4            1227   2169 Delaware State                fcs           MEAC
-5            1460     47         Howard                fcs           MEAC
-6            1357    322      Lafayette                fcs        Patriot
+6            ACC         45                  0.9025691           1431
+  homePostgameElo awayId           awayTeam awayClassification awayConference
+1            1513     52      Florida State                fbs            ACC
+2            1234    147      Montana State                fcs        Big Sky
+3            1243   2567                SMU                fbs            ACC
+4            1227   2169     Delaware State                fcs           MEAC
+5            1460     47             Howard                fcs           MEAC
+6            1431   2448 North Carolina A&amp;T                fcs            CAA
   awayPoints awayPostgameWinProbability awayPregameElo awayPostgameElo
 1         21                0.008604470           1692            1676
 2         35                0.698899334             NA              NA
 3         29                0.897290526           1690            1669
 4         14                0.043531043             NA              NA
 5          7                0.003016888             NA              NA
-6         13                0.003635522             NA              NA
+6         13                0.097430886             NA              NA
   excitementIndex highlights                               notes
 1        7.822224            Aer Lingus College Football Classic
 2        4.927318                                           &lt;NA&gt;
 3        7.671492                                           &lt;NA&gt;
 4        5.224356                                           &lt;NA&gt;
 5        4.681952                                           &lt;NA&gt;
-6        4.518467                                           &lt;NA&gt;</code></pre>
+6        4.005573                                           &lt;NA&gt;</code></pre>
 </div>
 </div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>games <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"games_2024.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://api.collegefootballdata.com/scoreboard?classification=fbs"</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">GET</span>(</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  url,</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_headers</span>(</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">Authorization =</span> <span class="fu">paste</span>(<span class="st">"Bearer"</span>, <span class="fu">Sys.getenv</span>(<span class="st">"CFBD_API_KEY"</span>)),</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">User-Agent</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"R Client"</span>,</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">accept =</span> <span class="st">"application/json"</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Check response</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">status_code</span>(res) <span class="sc">!=</span> <span class="dv">200</span>) <span class="fu">stop</span>(<span class="st">"API request failed!"</span>)</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert JSON and flatten</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>json_text <span class="ot">&lt;-</span> <span class="fu">content</span>(res, <span class="st">"text"</span>, <span class="at">encoding =</span> <span class="st">"UTF-8"</span>)</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(json_text, <span class="at">flatten =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove any remaining list-columns</span></span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>list_cols <span class="ot">&lt;-</span> <span class="fu">sapply</span>(data, is.list)</span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>data[list_cols] <span class="ot">&lt;-</span> <span class="cn">NULL</span>  <span class="co"># drop problematic columns</span></span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Save to CSV</span></span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(data, <span class="st">"scores_2024.csv"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Preview</span></span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">head</span>(data))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         id                startDate startTimeTBD            tv neutralSite
+1 401752765 2025-11-15T20:30:00.000Z        FALSE           ABC       FALSE
+2 401752766 2025-11-16T00:30:00.000Z        FALSE           ABC       FALSE
+3 401752767 2025-11-15T18:30:00.000Z        FALSE ESPN+ | SECN+       FALSE
+4 401752768 2025-11-15T17:45:00.000Z        FALSE   SEC Network       FALSE
+5 401752769 2025-11-16T00:00:00.000Z        FALSE          ESPN       FALSE
+6 401752770 2025-11-16T00:45:00.000Z        FALSE   SEC Network       FALSE
+  conferenceGame    status period clock            situation possession
+1           TRUE completed     NA    NA       3rd &amp; 12 at 50       away
+2           TRUE completed     NA    NA   1st &amp; 10 at TEX 44       home
+3          FALSE completed     NA    NA  2nd &amp; 16 at TNTC 21       away
+4           TRUE completed     NA    NA 3rd &amp; Goal at ARK 14       home
+5           TRUE completed     NA    NA   3rd &amp; 14 at FLA 35       home
+6           TRUE completed     NA    NA  3rd &amp; 12 at MSST 45       home
+                                                                  lastPlay
+1           (00:34) Kneel down by #10 J.Mateer at ALA50 for loss of 1 yard
+2 (00:29) #92 B.Thorson punt 49 yards to the TEX44, out of bounds at TEX44
+3            (01:10) Kneel down by #16 J.Wilson at TT21 for loss of 1 yard
+4                   (01:10) Kneel down by LSU at ARK14 for loss of 2 yards
+5                           (00:34) Kneel down at UF35 for loss of 2 yards
+6               (00:35) Kneel down by Missouri at MSU45 for loss of 1 yard
+                venue.name  venue.city venue.state homeTeam.id
+1     Bryant-Denny Stadium  Tuscaloosa          AL         333
+2          Sanford Stadium      Athens          GA          61
+3             Kroger Field   Lexington          KY          96
+4       Tiger Stadium (LA) Baton Rouge          LA          99
+5 Vaught-Hemingway Stadium      Oxford          MS         145
+6         Memorial Stadium    Columbia          MO         142
+         homeTeam.name homeTeam.conference homeTeam.classification
+1 Alabama Crimson Tide                 SEC                     fbs
+2     Georgia Bulldogs                 SEC                     fbs
+3    Kentucky Wildcats                 SEC                     fbs
+4           LSU Tigers                 SEC                     fbs
+5      Ole Miss Rebels                 SEC                     fbs
+6      Missouri Tigers                 SEC                     fbs
+  homeTeam.points homeTeam.winProbability awayTeam.id
+1              21                      NA         201
+2              35                      NA         251
+3              42                      NA        2635
+4              23                      NA           8
+5              34                      NA          57
+6              49                      NA         344
+                 awayTeam.name awayTeam.conference awayTeam.classification
+1             Oklahoma Sooners                 SEC                     fbs
+2              Texas Longhorns                 SEC                     fbs
+3 Tennessee Tech Golden Eagles       Big South-OVC                     fcs
+4          Arkansas Razorbacks                 SEC                     fbs
+5               Florida Gators                 SEC                     fbs
+6   Mississippi State Bulldogs                 SEC                     fbs
+  awayTeam.points awayTeam.winProbability weather.temperature
+1              23                      NA                75.0
+2              10                      NA                63.7
+3              10                      NA                71.8
+4              22                      NA                79.0
+5              24                      NA                68.4
+6              27                      NA                60.6
+  weather.description weather.windSpeed weather.windDirection betting.spread
+1              Cloudy              13.7                   210           -6.5
+2               Clear               2.5                   240           -4.0
+3              Cloudy              12.4                   220          -23.5
+4               Clear               6.8                   218           -4.0
+5               Clear              12.3                   215          -10.5
+6               Clear               5.6                    10           -7.0
+  betting.overUnder betting.homeMoneyline betting.awayMoneyline
+1              45.5                  -260                   215
+2              50.5                  -220                   180
+3              51.0                 -2000                   950
+4              58.0                  -220                   180
+5              53.5                  -750                   500
+6              50.0                  -245                   205</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>scores <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"scores_2024.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(scores)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 59
+Columns: 35
+$ id                      &lt;int&gt; 401752765, 401752766, 401752767, 401752768, 40…
+$ startDate               &lt;chr&gt; "2025-11-15T20:30:00.000Z", "2025-11-16T00:30:…
+$ startTimeTBD            &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALS…
+$ tv                      &lt;chr&gt; "ABC", "ABC", "ESPN+ | SECN+", "SEC Network", …
+$ neutralSite             &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALS…
+$ conferenceGame          &lt;lgl&gt; TRUE, TRUE, FALSE, TRUE, TRUE, TRUE, FALSE, TR…
+$ status                  &lt;chr&gt; "completed", "completed", "completed", "comple…
+$ period                  &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ clock                   &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ situation               &lt;chr&gt; "3rd &amp; 12 at 50", "1st &amp; 10 at TEX 44", "2nd &amp;…
+$ possession              &lt;chr&gt; "away", "home", "away", "home", "home", "home"…
+$ lastPlay                &lt;chr&gt; "(00:34) Kneel down by #10 J.Mateer at ALA50 f…
+$ venue.name              &lt;chr&gt; "Bryant-Denny Stadium", "Sanford Stadium", "Kr…
+$ venue.city              &lt;chr&gt; "Tuscaloosa", "Athens", "Lexington", "Baton Ro…
+$ venue.state             &lt;chr&gt; "AL", "GA", "KY", "LA", "MS", "MO", "TN", "TX"…
+$ homeTeam.id             &lt;int&gt; 333, 61, 96, 99, 145, 142, 2633, 245, 194, 84,…
+$ homeTeam.name           &lt;chr&gt; "Alabama Crimson Tide", "Georgia Bulldogs", "K…
+$ homeTeam.conference     &lt;chr&gt; "SEC", "SEC", "SEC", "SEC", "SEC", "SEC", "SEC…
+$ homeTeam.classification &lt;chr&gt; "fbs", "fbs", "fbs", "fbs", "fbs", "fbs", "fbs…
+$ homeTeam.points         &lt;int&gt; 21, 35, 42, 23, 34, 49, 42, 31, 48, 31, 49, 10…
+$ homeTeam.winProbability &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ awayTeam.id             &lt;int&gt; 201, 251, 2635, 8, 57, 344, 166, 2579, 26, 275…
+$ awayTeam.name           &lt;chr&gt; "Oklahoma Sooners", "Texas Longhorns", "Tennes…
+$ awayTeam.conference     &lt;chr&gt; "SEC", "SEC", "Big South-OVC", "SEC", "SEC", "…
+$ awayTeam.classification &lt;chr&gt; "fbs", "fbs", "fcs", "fbs", "fbs", "fbs", "fbs…
+$ awayTeam.points         &lt;int&gt; 23, 10, 10, 22, 24, 27, 9, 30, 10, 7, 13, 28, …
+$ awayTeam.winProbability &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ weather.temperature     &lt;dbl&gt; 75.0, 63.7, 71.8, 79.0, 68.4, 60.6, 71.4, 75.0…
+$ weather.description     &lt;chr&gt; "Cloudy", "Clear", "Cloudy", "Clear", "Clear",…
+$ weather.windSpeed       &lt;dbl&gt; 13.7, 2.5, 12.4, 6.8, 12.3, 5.6, 8.1, 14.9, 8.…
+$ weather.windDirection   &lt;int&gt; 210, 240, 220, 218, 215, 10, 230, 220, 280, 22…
+$ betting.spread          &lt;dbl&gt; -6.5, -4.0, -23.5, -4.0, -10.5, -7.0, -41.5, -…
+$ betting.overUnder       &lt;dbl&gt; 45.5, 50.5, 51.0, 58.0, 53.5, 50.0, 60.0, 49.5…
+$ betting.homeMoneyline   &lt;int&gt; -260, -220, -2000, -220, -750, -245, NA, -1300…
+$ betting.awayMoneyline   &lt;int&gt; 215, 180, 950, 180, 500, 205, NA, 725, NA, NA,…</code></pre>
+</div>
 </div>
 
 
