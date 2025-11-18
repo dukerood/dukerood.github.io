@@ -1,6 +1,6 @@
 project:
   type: website
-  output-dir: ../dukerood.github.io
+  output-dir: ../WeathervsOffense.github.io
 
 website:
   description: "data and sports and stuff"
