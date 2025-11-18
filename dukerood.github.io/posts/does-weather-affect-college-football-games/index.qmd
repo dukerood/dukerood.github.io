@@ -35,7 +35,21 @@ Looking at the away team first.
 ```{r message=FALSE, warning=FALSE}
 ggplot() + 
   geom_point(data=scores_weather, aes(x=temperature, y=away_points)) +
-  geom_smooth(data=scores_weather, aes(x=temperature, y=away_points), method="lm")
+  geom_smooth(data=scores_weather, aes(x=temperature, y=away_points), method="lm")+ 
+  labs(
+    x="Temperature", 
+    y="Away Team Points", 
+    title="Did the Away team score a lot in different climates", 
+    subtitle="Comapring this to Home teams average scoring in different climates", 
+    caption="Source: CFBFastR | Duke Rood"
+    ) +
+  theme_minimal() + 
+  theme(
+    plot.title = element_text(size = 20, face = "bold"),
+    axis.title = element_text(size = 8), 
+    plot.subtitle = element_text(size=10), 
+    panel.grid.minor = element_blank()
+    ) 
 ```
 
 And Now the home team
@@ -43,8 +57,23 @@ And Now the home team
 ```{r message=FALSE, warning=FALSE}
 ggplot() + 
   geom_point(data=scores_weather, aes(x=temperature, y=home_points)) +
-  geom_smooth(data=scores_weather, aes(x=temperature, y=home_points), method="lm")
+  geom_smooth(data=scores_weather, aes(x=temperature, y=home_points), method="lm")+ 
+  labs(
+    x="Temperature", 
+    y="Away Team Points", 
+    title="Did the Home team score a lot in different climates", 
+    subtitle="Comapring this to Home teams average scoring in different climates", 
+    caption="Source: CFBFastR | Duke Rood"
+    ) +
+  theme_minimal() + 
+  theme(
+    plot.title = element_text(size = 20, face = "bold"),
+    axis.title = element_text(size = 8), 
+    plot.subtitle = element_text(size=10), 
+    panel.grid.minor = element_blank()
+    ) 
 ```
+
 
 Now, from the looks of it, the home team has the advantage. But lets see what the numbers say. Again, starting with the away team.
 
@@ -65,7 +94,21 @@ The numbers confirm the question that the home team has the advantage in any wea
 How does weather really effect the game? College football has undergone a huge change with Quarterbacks dominating weekly. However, do they still dominate when there is rain present?
 
 ```{r}
-ggplot() + geom_line(data = game_weather, aes(x=off_passing_downs_success_rate, y=precipitation)) 
+ggplot() + geom_line(data = game_weather, aes(x=off_passing_downs_success_rate, y=precipitation)) + 
+  labs(
+    x="Offensive Passing Success Rate", 
+    y="Precipitation", 
+    title="Is Passing successful in Rainy conditions", 
+    subtitle="Seeing if the rain damages the Passing Parade", 
+    caption="Source: CFBFastR | Duke Rood"
+    ) +
+  theme_minimal() + 
+  theme(
+    plot.title = element_text(size = 20, face = "bold"),
+    axis.title = element_text(size = 8), 
+    plot.subtitle = element_text(size=10), 
+    panel.grid.minor = element_blank()
+    ) 
 ```
 
 This graph shows the success rate of passing and precipitation in the games. It would appear the rain does not have too much of an effect on passing.
@@ -78,7 +121,21 @@ ggplot() +
     data=game_weather, 
     aes(x=precipitation, y=off_explosiveness, size=off_explosiveness),
     alpha = 0.3) + 
-  scale_size(range = c(0, 15), name="Explosiveness")
+  scale_size(range = c(0, 15), name="Explosiveness")+ 
+  labs(
+    x="Precipitation", 
+    y="Offensive Explosiveness", 
+    title="Does the rain slow down big, expolisve plays?", 
+    subtitle="Are games less explosive in the rain?", 
+    caption="Source: CFBFastR | Duke Rood"
+    ) +
+  theme_minimal() + 
+  theme(
+    plot.title = element_text(size = 20, face = "bold"),
+    axis.title = element_text(size = 8), 
+    plot.subtitle = element_text(size=10), 
+    panel.grid.minor = element_blank()
+    ) 
 ```
 This graph shows a big patch on the left, where there was no precipitation during the game. As it spreads to the right, the more precipitation there is. The more rain there is, the less explosive the offenses got. None got over the 2 threshold. I think it is safe to say that rain does effect the game.
 
