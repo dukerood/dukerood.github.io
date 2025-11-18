@@ -3,7 +3,7 @@ title: "How Weather effects College Football"
 author: "Duke Rood"
 date: '2025-11-17'
 categories: [collegefootball, weather, offense]
-image: "maxresdefault.jpg"
+image: "maxresdefault copy.jpg"
 format: 
   html:
     code-fold: true
