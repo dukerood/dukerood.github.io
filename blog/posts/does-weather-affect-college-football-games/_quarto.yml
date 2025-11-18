@@ -1,10 +1,10 @@
 project:
   type: website
-  output-dir: ../WeathervsOffense.github.io
+  output-dir: ../dukerood.github.io
 
 website:
   description: "data and sports and stuff"
-  site-url: https://your-website-url.example.com # you must change this appropriately for RSS feeds to work properly
+  site-url: https://Weather.offense.com # you must change this appropriately for RSS feeds to work properly
   title: "Duke's Sports Blog"
   navbar:
     right:
