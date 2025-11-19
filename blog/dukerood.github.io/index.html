@@ -195,8 +195,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>It is clear that football is the biggest game that is played in every type of weather. From smoking hot to freezing cold, football has it all.</p>
-<p>How does these different weather conditions, effect the game we know and love.</p>
+<p>It is clear that football is the biggest game that is played in every type of weather. From smoking hot to freezing cold, football has it all. I think this is what makes football great and unique. However, some may say these different conditions ruin the game.</p>
+<p>So how does these different weather conditions, effect the game we know and love.</p>
 <p>First, lets take a look at how home field advantage comes to play. Does the home team score more then the away team, in different weather conditions?</p>
 <div class="cell">
 <details class="code-fold">
@@ -252,7 +252,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">data=</span>scores_weather, <span class="fu">aes</span>(<span class="at">x=</span>temperature, <span class="at">y=</span>home_points), <span class="at">method=</span><span class="st">"lm"</span>)<span class="sc">+</span> </span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x=</span><span class="st">"Temperature"</span>, </span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y=</span><span class="st">"Away Team Points"</span>, </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y=</span><span class="st">"Home Team Points"</span>, </span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">title=</span><span class="st">"Did the Home team score a lot in different climates"</span>, </span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle=</span><span class="st">"Comapring this to Home teams average scoring in different climates"</span>, </span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption=</span><span class="st">"Source: CFBFastR | Duke Rood"</span></span>
@@ -374,7 +374,7 @@ F-statistic: 0.9715 on 1 and 3173 DF,  p-value: 0.3244</code></pre>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x=</span><span class="st">"Precipitation"</span>, </span>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">y=</span><span class="st">"Offensive Explosiveness"</span>, </span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">title=</span><span class="st">"Does the rain slow down big, expolisve plays?"</span>, </span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">title=</span><span class="st">"Does the rain slow down big, explosive plays?"</span>, </span>
 <span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle=</span><span class="st">"Are games less explosive in the rain?"</span>, </span>
 <span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption=</span><span class="st">"Source: CFBFastR | Duke Rood"</span></span>
 <span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>

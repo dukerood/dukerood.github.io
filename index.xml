@@ -8,21 +8,21 @@
 <title>Duke&#39;s Sports Blog</title>
 <link>https://your-website-url.example.com/</link>
 <atom:link href="https://your-website-url.example.com/index.xml" rel="self" type="application/rss+xml"/>
-<description>data and sports and stuff</description>
+<description>Duke Rood&#39;s projects</description>
 <generator>quarto-1.8.25</generator>
 <lastBuildDate>Mon, 17 Nov 2025 06:00:00 GMT</lastBuildDate>
 <item>
   <title>How Weather effects College Football</title>
   <dc:creator>Duke Rood</dc:creator>
-  <link>https://your-website-url.example.com/posts/does-weather-affect-college-football-games/</link>
+  <link>https://your-website-url.example.com/posts/Does_Weather_effect_College_Football/</link>
   <description><![CDATA[ 
 
 
 
 
 
-<p>It is clear that football is the biggest game that is played in every type of weather. From smoking hot to freezing cold, football has it all.</p>
-<p>How does these different weather conditions, effect the game we know and love.</p>
+<p>It is clear that football is the biggest game that is played in every type of weather. From smoking hot to freezing cold, football has it all. I think this is what makes football great and unique. However, some may say these different conditions ruin the game.</p>
+<p>So how does these different weather conditions, effect the game we know and love.</p>
 <p>First, lets take a look at how home field advantage comes to play. Does the home team score more then the away team, in different weather conditions?</p>
 <div class="cell">
 <details class="code-fold">
@@ -111,12 +111,90 @@ font-style: inherit;">y=</span>away_points), <span class="at" style="color: #657
 background-color: null;
 font-style: inherit;">method=</span><span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"lm"</span>)</span></code></pre></div></div>
+font-style: inherit;">"lm"</span>)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> </span>
+<span id="cb2-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">labs</span>(</span>
+<span id="cb2-5">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Temperature"</span>, </span>
+<span id="cb2-6">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Away Team Points"</span>, </span>
+<span id="cb2-7">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">title=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Did the Away team score a lot in different climates"</span>, </span>
+<span id="cb2-8">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">subtitle=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Comapring this to Home teams average scoring in different climates"</span>, </span>
+<span id="cb2-9">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">caption=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Source: CFBFastR | Duke Rood"</span></span>
+<span id="cb2-10">    ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb2-11">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme_minimal</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> </span>
+<span id="cb2-12">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme</span>(</span>
+<span id="cb2-13">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">plot.title =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_text</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">face =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"bold"</span>),</span>
+<span id="cb2-14">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">axis.title =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_text</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8</span>), </span>
+<span id="cb2-15">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">plot.subtitle =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_text</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>), </span>
+<span id="cb2-16">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">panel.grid.minor =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_blank</span>()</span>
+<span id="cb2-17">    ) </span></code></pre></div></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://your-website-url.example.com/posts/does-weather-affect-college-football-games/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://your-website-url.example.com/posts/Does_Weather_effect_College_Football/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -157,12 +235,90 @@ font-style: inherit;">y=</span>home_points), <span class="at" style="color: #657
 background-color: null;
 font-style: inherit;">method=</span><span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"lm"</span>)</span></code></pre></div></div>
+font-style: inherit;">"lm"</span>)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> </span>
+<span id="cb3-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">labs</span>(</span>
+<span id="cb3-5">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Temperature"</span>, </span>
+<span id="cb3-6">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Home Team Points"</span>, </span>
+<span id="cb3-7">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">title=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Did the Home team score a lot in different climates"</span>, </span>
+<span id="cb3-8">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">subtitle=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Comapring this to Home teams average scoring in different climates"</span>, </span>
+<span id="cb3-9">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">caption=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Source: CFBFastR | Duke Rood"</span></span>
+<span id="cb3-10">    ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb3-11">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme_minimal</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> </span>
+<span id="cb3-12">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme</span>(</span>
+<span id="cb3-13">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">plot.title =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_text</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">face =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"bold"</span>),</span>
+<span id="cb3-14">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">axis.title =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_text</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8</span>), </span>
+<span id="cb3-15">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">plot.subtitle =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_text</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>), </span>
+<span id="cb3-16">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">panel.grid.minor =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_blank</span>()</span>
+<span id="cb3-17">    ) </span></code></pre></div></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://your-website-url.example.com/posts/does-weather-affect-college-football-games/index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://your-website-url.example.com/posts/Does_Weather_effect_College_Football/index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -264,12 +420,90 @@ font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">x=</span>off_passing_downs_success_rate, <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">y=</span>precipitation)) </span></code></pre></div></div>
+font-style: inherit;">y=</span>precipitation)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> </span>
+<span id="cb8-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">labs</span>(</span>
+<span id="cb8-3">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Offensive Passing Success Rate"</span>, </span>
+<span id="cb8-4">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Precipitation"</span>, </span>
+<span id="cb8-5">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">title=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Is Passing successful in Rainy conditions"</span>, </span>
+<span id="cb8-6">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">subtitle=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Seeing if the rain damages the Passing Parade"</span>, </span>
+<span id="cb8-7">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">caption=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Source: CFBFastR | Duke Rood"</span></span>
+<span id="cb8-8">    ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb8-9">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme_minimal</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> </span>
+<span id="cb8-10">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme</span>(</span>
+<span id="cb8-11">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">plot.title =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_text</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">face =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"bold"</span>),</span>
+<span id="cb8-12">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">axis.title =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_text</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8</span>), </span>
+<span id="cb8-13">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">plot.subtitle =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_text</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>), </span>
+<span id="cb8-14">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">panel.grid.minor =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_blank</span>()</span>
+<span id="cb8-15">    ) </span></code></pre></div></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://your-website-url.example.com/posts/does-weather-affect-college-football-games/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://your-website-url.example.com/posts/Does_Weather_effect_College_Football/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -320,16 +554,96 @@ font-style: inherit;">15</span>), <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">name=</span><span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"Explosiveness"</span>)</span></code></pre></div></div>
+font-style: inherit;">"Explosiveness"</span>)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> </span>
+<span id="cb9-7">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">labs</span>(</span>
+<span id="cb9-8">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Precipitation"</span>, </span>
+<span id="cb9-9">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Offensive Explosiveness"</span>, </span>
+<span id="cb9-10">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">title=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Does the rain slow down big, explosive plays?"</span>, </span>
+<span id="cb9-11">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">subtitle=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Are games less explosive in the rain?"</span>, </span>
+<span id="cb9-12">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">caption=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Source: CFBFastR | Duke Rood"</span></span>
+<span id="cb9-13">    ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb9-14">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme_minimal</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> </span>
+<span id="cb9-15">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme</span>(</span>
+<span id="cb9-16">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">plot.title =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_text</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">face =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"bold"</span>),</span>
+<span id="cb9-17">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">axis.title =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_text</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8</span>), </span>
+<span id="cb9-18">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">plot.subtitle =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_text</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>), </span>
+<span id="cb9-19">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">panel.grid.minor =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_blank</span>()</span>
+<span id="cb9-20">    ) </span></code></pre></div></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://your-website-url.example.com/posts/does-weather-affect-college-football-games/index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://your-website-url.example.com/posts/Does_Weather_effect_College_Football/index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
+<p>This graph shows a big patch on the left, where there was no precipitation during the game. As it spreads to the right, the more precipitation there is. The more rain there is, the less explosive the offenses got. None got over the 2 threshold. I think it is safe to say that rain does effect the game.</p>
+<p>Source for all the graphs: CFBFastR</p>
 
 
 
@@ -337,9 +651,9 @@ font-style: inherit;">"Explosiveness"</span>)</span></code></pre></div></div>
   <category>collegefootball</category>
   <category>weather</category>
   <category>offense</category>
-  <guid>https://your-website-url.example.com/posts/does-weather-affect-college-football-games/</guid>
+  <guid>https://your-website-url.example.com/posts/Does_Weather_effect_College_Football/</guid>
   <pubDate>Mon, 17 Nov 2025 06:00:00 GMT</pubDate>
-  <media:content url="https://your-website-url.example.com/posts/does-weather-affect-college-football-games/maxresdefault.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://your-website-url.example.com/posts/Does_Weather_effect_College_Football/maxresdefault copy.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>
