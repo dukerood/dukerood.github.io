@@ -22,16 +22,362 @@
 
 
 <p>This is a test for my story, hopefully this works.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(tidyverse)</span>
+<span id="cb1-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(dplyr)</span>
+<span id="cb1-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(ggplot2)</span>
+<span id="cb1-4"></span>
+<span id="cb1-5">passing <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">read_csv</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Passing Stats top 10 - Sheet1.csv"</span>)</span></code></pre></div></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">stafford <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> passing <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span id="cb2-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">filter</span>(</span>
+<span id="cb2-3">    Player <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Matthew Stafford"</span></span>
+<span id="cb2-4">  )</span>
+<span id="cb2-5"></span>
+<span id="cb2-6"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> </span>
+<span id="cb2-7">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_bar</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data=</span>passing, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x=</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">reorder</span>(Player, TD), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">weight=</span>TD)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb2-8">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_bar</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data=</span>stafford, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x=</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">reorder</span>(Player, TD), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">weight=</span>TD), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">fill=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"red"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb2-9">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">coord_flip</span>()<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> </span>
+<span id="cb2-10">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">labs</span>(</span>
+<span id="cb2-11">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Player"</span>, </span>
+<span id="cb2-12">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Passing Touchdowns"</span>, </span>
+<span id="cb2-13">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">title=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"NFL Passing Touchdowns Top 10"</span>, </span>
+<span id="cb2-14">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">subtitle=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"As of Week 15"</span>, </span>
+<span id="cb2-15">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">caption=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Source: Pro Football Reference | Duke Rood"</span></span>
+<span id="cb2-16">    ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb2-17">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme_minimal</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> </span>
+<span id="cb2-18">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme</span>(</span>
+<span id="cb2-19">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">plot.title =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_text</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">face =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"bold"</span>),</span>
+<span id="cb2-20">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">axis.title =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_text</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8</span>), </span>
+<span id="cb2-21">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">plot.subtitle =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_text</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>), </span>
+<span id="cb2-22">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">panel.grid.minor =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_blank</span>()</span>
+<span id="cb2-23">    ) </span></code></pre></div></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://your-website-url.example.com/posts/Matthew-Stafford-is-MVP/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> </span>
+<span id="cb3-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_bar</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data=</span>passing, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x=</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">reorder</span>(Player, TD), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">weight=</span>TD)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb3-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_bar</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data=</span>stafford, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x=</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">reorder</span>(Player, TD), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">weight=</span>TD), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">fill=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"red"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb3-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">coord_flip</span>()<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> </span>
+<span id="cb3-5">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">labs</span>(</span>
+<span id="cb3-6">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Passing Touchdowns"</span>, </span>
+<span id="cb3-7">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Player"</span>, </span>
+<span id="cb3-8">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">title=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"NFL Passing Touchdown"</span>, </span>
+<span id="cb3-9">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">subtitle=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Seeing if the rain damages the Passing Parade"</span>, </span>
+<span id="cb3-10">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">caption=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Source: CFBFastR | Duke Rood"</span></span>
+<span id="cb3-11">    ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb3-12">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme_minimal</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> </span>
+<span id="cb3-13">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme</span>(</span>
+<span id="cb3-14">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">plot.title =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_text</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">face =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"bold"</span>),</span>
+<span id="cb3-15">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">axis.title =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_text</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8</span>), </span>
+<span id="cb3-16">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">plot.subtitle =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_text</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>), </span>
+<span id="cb3-17">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">panel.grid.minor =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_blank</span>()</span>
+<span id="cb3-18">    ) </span></code></pre></div></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://your-website-url.example.com/posts/Matthew-Stafford-is-MVP/index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">glimpse</span>(passing)</span></code></pre></div></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 10
+Columns: 32
+$ Rk       &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+$ Player   &lt;chr&gt; "Dak Prescott", "Drake Maye", "Patrick Mahomes", "Matthew Sta…
+$ Age      &lt;dbl&gt; 32, 23, 30, 37, 31, 28, 28, 29, 27, 25
+$ Team     &lt;chr&gt; "DAL", "NWE", "KAN", "LAR", "DET", "SEA", "IND", "BUF", "GNB"…
+$ Pos      &lt;chr&gt; "QB", "QB", "QB", "QB", "QB", "QB", "QB", "QB", "QB", "QB"
+$ G        &lt;dbl&gt; 13, 13, 13, 13, 13, 13, 13, 13, 13, 13
+$ GS       &lt;dbl&gt; 13, 13, 13, 13, 13, 13, 13, 13, 13, 13
+$ QBrec    &lt;chr&gt; "6-6-2001", "11-2-2000", "6-7-2000", "10-3-2000", "8-5-2000",…
+$ Cmp      &lt;dbl&gt; 334, 276, 299, 288, 289, 241, 261, 265, 259, 297
+$ Att      &lt;dbl&gt; 484, 386, 474, 432, 412, 354, 384, 378, 386, 470
+$ `Cmp%`   &lt;dbl&gt; 69.0, 71.5, 63.1, 66.7, 70.1, 68.1, 68.0, 70.1, 67.1, 63.2
+$ Yds...12 &lt;dbl&gt; 3637, 3412, 3398, 3354, 3334, 3162, 3101, 3083, 3028, 2954
+$ TD       &lt;dbl&gt; 26, 23, 22, 35, 26, 22, 19, 22, 22, 19
+$ `TD%`    &lt;dbl&gt; 5.4, 6.0, 4.6, 8.1, 6.3, 6.2, 4.9, 5.8, 5.7, 4.0
+$ Int      &lt;dbl&gt; 10, 6, 10, 4, 5, 11, 8, 10, 4, 9
+$ `Int%`   &lt;dbl&gt; 2.1, 1.6, 2.1, 0.9, 1.2, 3.1, 2.1, 2.6, 1.0, 1.9
+$ `1D`     &lt;dbl&gt; 178, 158, 165, 173, 158, 139, 149, 149, 143, 149
+$ `Succ%`  &lt;dbl&gt; 49.0, 52.6, 47.9, 55.0, 50.3, 51.8, 52.0, 49.9, 51.0, 45.3
+$ Lng      &lt;dbl&gt; 74, 72, 61, 88, 64, 67, 75, 54, 59, 52
+$ `Y/A`    &lt;dbl&gt; 7.5, 8.8, 7.2, 7.8, 8.1, 8.9, 8.1, 8.2, 7.8, 6.3
+$ `AY/A`   &lt;dbl&gt; 7.66, 9.33, 7.15, 8.97, 8.81, 8.78, 8.13, 8.13, 8.52, 6.23
+$ `Y/C`    &lt;dbl&gt; 10.9, 12.4, 11.4, 11.6, 11.5, 13.1, 11.9, 11.6, 11.7, 9.9
+$ `Y/G`    &lt;dbl&gt; 279.8, 262.5, 261.4, 258.0, 256.5, 243.2, 238.5, 237.2, 232.9…
+$ Rate     &lt;dbl&gt; 100.2, 111.9, 91.2, 113.1, 110.2, 103.8, 100.2, 102.9, 105.4,…
+$ QBR      &lt;dbl&gt; 73.4, 72.3, 69.3, 68.9, 56.5, 64.5, 64.1, 65.3, 73.1, 55.7
+$ Sk       &lt;dbl&gt; 22, 40, 29, 17, 27, 17, 22, 31, 18, 16
+$ Yds...27 &lt;dbl&gt; 155, 178, 172, 114, 180, 114, 158, 200, 140, 87
+$ `Sk%`    &lt;dbl&gt; 4.35, 9.39, 5.77, 3.79, 6.15, 4.58, 5.42, 7.58, 4.46, 3.29
+$ `NY/A`   &lt;dbl&gt; 6.88, 7.59, 6.41, 7.22, 7.18, 8.22, 7.25, 7.05, 7.15, 5.90
+$ `ANY/A`  &lt;dbl&gt; 7.02, 8.04, 6.39, 8.37, 7.86, 8.07, 7.30, 7.02, 7.79, 5.85
+$ `4QC`    &lt;dbl&gt; 4, 0, 1, 1, 1, 0, 3, 3, 4, 5
+$ GWD      &lt;dbl&gt; 3, 1, 1, 1, 2, 2, 3, 3, 4, 6</code></pre>
+</div>
+</div>
 
 
 
  ]]></description>
-  <category>collegefootball</category>
-  <category>weather</category>
-  <category>offense</category>
+  <category>Rams</category>
+  <category>NFL</category>
+  <category>Matthew Stafford</category>
+  <category>MVP</category>
   <guid>https://your-website-url.example.com/posts/Matthew-Stafford-is-MVP/</guid>
   <pubDate>Wed, 03 Dec 2025 06:00:00 GMT</pubDate>
-  <media:content url="https://your-website-url.example.com/posts/Matthew-Stafford-is-MVP/image.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://your-website-url.example.com/posts/Matthew-Stafford-is-MVP/80357090007-64-666165.jpeg.webp" medium="image" type="image/webp"/>
 </item>
 <item>
   <title>How Weather effects College Football</title>
