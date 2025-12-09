@@ -10,9 +10,9 @@
 <atom:link href="https://your-website-url.example.com/index.xml" rel="self" type="application/rss+xml"/>
 <description>Duke Rood&#39;s projects</description>
 <generator>quarto-1.8.25</generator>
-<lastBuildDate>Wed, 03 Dec 2025 06:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 08 Dec 2025 06:00:00 GMT</lastBuildDate>
 <item>
-  <title>Matthew Stafford is MVP</title>
+  <title>Why Matthew Stafford is MVP</title>
   <dc:creator>Duke Rood</dc:creator>
   <link>https://your-website-url.example.com/posts/Matthew-Stafford-is-MVP/</link>
   <description><![CDATA[ 
@@ -21,7 +21,6 @@
 
 
 
-<p>This is a test for my story, hopefully this works.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -34,16 +33,35 @@ font-style: inherit;">library</span>(dplyr)</span>
 <span id="cb1-3"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(ggplot2)</span>
-<span id="cb1-4"></span>
-<span id="cb1-5">passing <span class="ot" style="color: #003B4F;
+<span id="cb1-4"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(ggalt)</span>
+<span id="cb1-5"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(ggtext)</span>
+<span id="cb1-6"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(gt)</span>
+<span id="cb1-7"></span>
+<span id="cb1-8">passing <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">read_csv</span>(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"Passing Stats top 10 - Sheet1.csv"</span>)</span></code></pre></div></div>
+font-style: inherit;">"Passing Stats top 10 - Sheet1.csv"</span>)</span>
+<span id="cb1-9">passing2 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">read_csv</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Copy of Passing Stats top 10 - Sheet1.csv"</span>)</span></code></pre></div></div>
 </details>
 </div>
+<p>The 2025 NFL season has been as close of a season that we have ever seen. The playoff race for the AFC and NFC is super close with lots of deserving teams that may miss the cut. As well as the MVP race, which has been a neck and neck race with two players separating themselves from the rest. The first is second year Quarterback Drake Maye of the New England Patriots. Maye, 23, is leading the Patriots back to their old ways with the help of first year Head Coach Mike Vrabel. The second, and my personal pick, is the 37 year old, Matthew Stafford of the LA Rams.</p>
+<p>Stafford has led the Rams to the best record in the NFC, and hasn’t showed any signs of regression in his 17th season in the league. In fact, he is on pace for the best season of his career.</p>
+<p>So lets get into the numbers on why Matthew Stafford should win MVP. Lets start with the fact that he leads the league in passing touchdowns.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -191,6 +209,7 @@ font-style: inherit;">element_blank</span>()</span>
 </div>
 </div>
 </div>
+<p>Stafford has thrown 35 touchdowns thus far. That number is the most in the league by 9! Jared Goff and Dak Prescott are tied for second with 26. Not only is Stafford scoring the most in the league by far, he is tied for the least amount of interceptions thrown, among qualified passers.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -201,83 +220,81 @@ background-color: null;
 font-style: inherit;">+</span> </span>
 <span id="cb3-2">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">geom_bar</span>(<span class="at" style="color: #657422;
+font-style: inherit;">geom_dumbbell</span>(</span>
+<span id="cb3-3">    <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">data=</span>passing, <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">x=</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">reorder</span>(Player, TD), <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">weight=</span>TD)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb3-3">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_bar</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">data=</span>stafford, <span class="fu" style="color: #4758AB;
+font-style: inherit;">data=</span>passing, </span>
+<span id="cb3-4">    <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">x=</span><span class="fu" style="color: #4758AB;
+font-style: inherit;">y=</span>Player, <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">reorder</span>(Player, TD), <span class="at" style="color: #657422;
+font-style: inherit;">x=</span>TD, <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">weight=</span>TD), <span class="at" style="color: #657422;
+font-style: inherit;">xend=</span>Int),</span>
+<span id="cb3-5">    <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">fill=</span><span class="st" style="color: #20794D;
+font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">"red"</span>) <span class="sc" style="color: #5E5E5E;
+font-style: inherit;">2</span>,</span>
+<span id="cb3-6">    <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb3-4">  <span class="fu" style="color: #4758AB;
+font-style: inherit;">colour =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">coord_flip</span>()<span class="sc" style="color: #5E5E5E;
+font-style: inherit;">"grey"</span>,</span>
+<span id="cb3-7">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">colour_x =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"green"</span>,</span>
+<span id="cb3-8">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">colour_xend =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"red"</span>)<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span> </span>
-<span id="cb3-5">  <span class="fu" style="color: #4758AB;
+<span id="cb3-9">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">labs</span>(</span>
-<span id="cb3-6">    <span class="at" style="color: #657422;
+<span id="cb3-10">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">x=</span><span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"Passing Touchdowns"</span>, </span>
-<span id="cb3-7">    <span class="at" style="color: #657422;
+font-style: inherit;">"Interceptions are in Red and Touchdowns are in Green"</span>, </span>
+<span id="cb3-11">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">y=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Player"</span>, </span>
-<span id="cb3-8">    <span class="at" style="color: #657422;
+<span id="cb3-12">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">title=</span><span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"NFL Passing Touchdown"</span>, </span>
-<span id="cb3-9">    <span class="at" style="color: #657422;
+font-style: inherit;">"Passing Touchdowns to Interception ratio"</span>, </span>
+<span id="cb3-13">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">subtitle=</span><span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"Seeing if the rain damages the Passing Parade"</span>, </span>
-<span id="cb3-10">    <span class="at" style="color: #657422;
+font-style: inherit;">"As of Week 15"</span>, </span>
+<span id="cb3-14">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">caption=</span><span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"Source: CFBFastR | Duke Rood"</span></span>
-<span id="cb3-11">    ) <span class="sc" style="color: #5E5E5E;
+font-style: inherit;">"Source: Pro Football Reference | Duke Rood"</span></span>
+<span id="cb3-15">    ) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb3-12">  <span class="fu" style="color: #4758AB;
+<span id="cb3-16">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">theme_minimal</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span> </span>
-<span id="cb3-13">  <span class="fu" style="color: #4758AB;
+<span id="cb3-17">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">theme</span>(</span>
-<span id="cb3-14">    <span class="at" style="color: #657422;
+<span id="cb3-18">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">plot.title =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -290,7 +307,7 @@ background-color: null;
 font-style: inherit;">face =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"bold"</span>),</span>
-<span id="cb3-15">    <span class="at" style="color: #657422;
+<span id="cb3-19">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">axis.title =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -299,7 +316,7 @@ background-color: null;
 font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">8</span>), </span>
-<span id="cb3-16">    <span class="at" style="color: #657422;
+<span id="cb3-20">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">plot.subtitle =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -308,12 +325,12 @@ background-color: null;
 font-style: inherit;">size=</span><span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">10</span>), </span>
-<span id="cb3-17">    <span class="at" style="color: #657422;
+<span id="cb3-21">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">panel.grid.minor =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">element_blank</span>()</span>
-<span id="cb3-18">    ) </span></code></pre></div></div>
+<span id="cb3-22">    ) </span></code></pre></div></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -323,50 +340,734 @@ font-style: inherit;">element_blank</span>()</span>
 </div>
 </div>
 </div>
+<p>As you can see, Interceptions are in red, and Touchdowns are in green. There is a huge gap between his league lead in Touchdowns compared to his only 3 picks on the year. Stafford has the Rams scoring a lot of points, while not turning it over. In fact he broke an NFL record last week for most TDs thrown without an interception, at 28. Ironically taking a Patriot’s record as Tom Brady previously held that record.</p>
+<p>Lastly, lets look at Passer Rating and Passing Success Rating. Passer Rating evaluates passing performance, indicating effectiveness in leading the offense through the air. Passing Success Rating measures a passer’s performance and efficiency in the passing game. So, lets take a look at the numbers.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">passing2 <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">glimpse</span>(passing)</span></code></pre></div></div>
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb4-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">gt</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb4-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cols_label</span>(</span>
+<span id="cb4-4">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Rate =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Passer Rating"</span>,</span>
+<span id="cb4-5">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Succ%</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Passing Success Rating"</span></span>
+<span id="cb4-6">  ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span id="cb4-7">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tab_header</span>(</span>
+<span id="cb4-8">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">title =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Comparing Passer Rating and Passing Success Rating among Top 10 QBs"</span>,</span>
+<span id="cb4-9">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">subtitle =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"As of Week 15"</span></span>
+<span id="cb4-10">  ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tab_style</span>(</span>
+<span id="cb4-11">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">style =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cell_text</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">color =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"black"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">weight =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"bold"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">align =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"left"</span>),</span>
+<span id="cb4-12">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">locations =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cells_title</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"title"</span>)</span>
+<span id="cb4-13">  ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tab_style</span>(</span>
+<span id="cb4-14">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">style =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cell_text</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">color =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"black"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">align =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"left"</span>),</span>
+<span id="cb4-15">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">locations =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cells_title</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"subtitle"</span>)</span>
+<span id="cb4-16">  ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span id="cb4-17">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tab_source_note</span>(</span>
+<span id="cb4-18">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">source_note =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">md</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"**By:** Duke Rood  |  **Source:** Pro Football Reference"</span>)</span>
+<span id="cb4-19">  ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span id="cb4-20">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tab_style</span>(</span>
+<span id="cb4-21">     <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">locations =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cells_column_labels</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">columns =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">everything</span>()),</span>
+<span id="cb4-22">     <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">style =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">list</span>(</span>
+<span id="cb4-23">       <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cell_borders</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">sides =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"bottom"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">weight =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">px</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>)),</span>
+<span id="cb4-24">       <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cell_text</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">weight =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"bold"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12</span>)</span>
+<span id="cb4-25">     )</span>
+<span id="cb4-26">  ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span id="cb4-27">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tab_style</span>(</span>
+<span id="cb4-28">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">style =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">list</span>(</span>
+<span id="cb4-29">      <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cell_fill</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">color =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"red"</span>),</span>
+<span id="cb4-30">      <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cell_text</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">color =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"white"</span>)</span>
+<span id="cb4-31">      ),</span>
+<span id="cb4-32">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">locations =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cells_body</span>(</span>
+<span id="cb4-33">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">rows =</span> Player <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Matthew Stafford"</span>)</span>
+<span id="cb4-34">  )</span></code></pre></div></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>Rows: 10
-Columns: 32
-$ Rk       &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
-$ Player   &lt;chr&gt; "Dak Prescott", "Drake Maye", "Patrick Mahomes", "Matthew Sta…
-$ Age      &lt;dbl&gt; 32, 23, 30, 37, 31, 28, 28, 29, 27, 25
-$ Team     &lt;chr&gt; "DAL", "NWE", "KAN", "LAR", "DET", "SEA", "IND", "BUF", "GNB"…
-$ Pos      &lt;chr&gt; "QB", "QB", "QB", "QB", "QB", "QB", "QB", "QB", "QB", "QB"
-$ G        &lt;dbl&gt; 13, 13, 13, 13, 13, 13, 13, 13, 13, 13
-$ GS       &lt;dbl&gt; 13, 13, 13, 13, 13, 13, 13, 13, 13, 13
-$ QBrec    &lt;chr&gt; "6-6-2001", "11-2-2000", "6-7-2000", "10-3-2000", "8-5-2000",…
-$ Cmp      &lt;dbl&gt; 334, 276, 299, 288, 289, 241, 261, 265, 259, 297
-$ Att      &lt;dbl&gt; 484, 386, 474, 432, 412, 354, 384, 378, 386, 470
-$ `Cmp%`   &lt;dbl&gt; 69.0, 71.5, 63.1, 66.7, 70.1, 68.1, 68.0, 70.1, 67.1, 63.2
-$ Yds...12 &lt;dbl&gt; 3637, 3412, 3398, 3354, 3334, 3162, 3101, 3083, 3028, 2954
-$ TD       &lt;dbl&gt; 26, 23, 22, 35, 26, 22, 19, 22, 22, 19
-$ `TD%`    &lt;dbl&gt; 5.4, 6.0, 4.6, 8.1, 6.3, 6.2, 4.9, 5.8, 5.7, 4.0
-$ Int      &lt;dbl&gt; 10, 6, 10, 4, 5, 11, 8, 10, 4, 9
-$ `Int%`   &lt;dbl&gt; 2.1, 1.6, 2.1, 0.9, 1.2, 3.1, 2.1, 2.6, 1.0, 1.9
-$ `1D`     &lt;dbl&gt; 178, 158, 165, 173, 158, 139, 149, 149, 143, 149
-$ `Succ%`  &lt;dbl&gt; 49.0, 52.6, 47.9, 55.0, 50.3, 51.8, 52.0, 49.9, 51.0, 45.3
-$ Lng      &lt;dbl&gt; 74, 72, 61, 88, 64, 67, 75, 54, 59, 52
-$ `Y/A`    &lt;dbl&gt; 7.5, 8.8, 7.2, 7.8, 8.1, 8.9, 8.1, 8.2, 7.8, 6.3
-$ `AY/A`   &lt;dbl&gt; 7.66, 9.33, 7.15, 8.97, 8.81, 8.78, 8.13, 8.13, 8.52, 6.23
-$ `Y/C`    &lt;dbl&gt; 10.9, 12.4, 11.4, 11.6, 11.5, 13.1, 11.9, 11.6, 11.7, 9.9
-$ `Y/G`    &lt;dbl&gt; 279.8, 262.5, 261.4, 258.0, 256.5, 243.2, 238.5, 237.2, 232.9…
-$ Rate     &lt;dbl&gt; 100.2, 111.9, 91.2, 113.1, 110.2, 103.8, 100.2, 102.9, 105.4,…
-$ QBR      &lt;dbl&gt; 73.4, 72.3, 69.3, 68.9, 56.5, 64.5, 64.1, 65.3, 73.1, 55.7
-$ Sk       &lt;dbl&gt; 22, 40, 29, 17, 27, 17, 22, 31, 18, 16
-$ Yds...27 &lt;dbl&gt; 155, 178, 172, 114, 180, 114, 158, 200, 140, 87
-$ `Sk%`    &lt;dbl&gt; 4.35, 9.39, 5.77, 3.79, 6.15, 4.58, 5.42, 7.58, 4.46, 3.29
-$ `NY/A`   &lt;dbl&gt; 6.88, 7.59, 6.41, 7.22, 7.18, 8.22, 7.25, 7.05, 7.15, 5.90
-$ `ANY/A`  &lt;dbl&gt; 7.02, 8.04, 6.39, 8.37, 7.86, 8.07, 7.30, 7.02, 7.79, 5.85
-$ `4QC`    &lt;dbl&gt; 4, 0, 1, 1, 1, 0, 3, 3, 4, 5
-$ GWD      &lt;dbl&gt; 3, 1, 1, 1, 2, 2, 3, 3, 4, 6</code></pre>
+<div class="cell-output-display">
+<div id="izqjfisjhm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#izqjfisjhm table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#izqjfisjhm thead, #izqjfisjhm tbody, #izqjfisjhm tfoot, #izqjfisjhm tr, #izqjfisjhm td, #izqjfisjhm th {
+  border-style: none;
+}
+
+#izqjfisjhm p {
+  margin: 0;
+  padding: 0;
+}
+
+#izqjfisjhm .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#izqjfisjhm .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#izqjfisjhm .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#izqjfisjhm .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#izqjfisjhm .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#izqjfisjhm .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#izqjfisjhm .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#izqjfisjhm .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#izqjfisjhm .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#izqjfisjhm .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#izqjfisjhm .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#izqjfisjhm .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#izqjfisjhm .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#izqjfisjhm .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#izqjfisjhm .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#izqjfisjhm .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#izqjfisjhm .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#izqjfisjhm .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#izqjfisjhm .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#izqjfisjhm .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#izqjfisjhm .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#izqjfisjhm .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#izqjfisjhm .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#izqjfisjhm .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#izqjfisjhm .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#izqjfisjhm .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#izqjfisjhm .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#izqjfisjhm .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#izqjfisjhm .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#izqjfisjhm .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#izqjfisjhm .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#izqjfisjhm .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#izqjfisjhm .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#izqjfisjhm .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#izqjfisjhm .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#izqjfisjhm .gt_left {
+  text-align: left;
+}
+
+#izqjfisjhm .gt_center {
+  text-align: center;
+}
+
+#izqjfisjhm .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#izqjfisjhm .gt_font_normal {
+  font-weight: normal;
+}
+
+#izqjfisjhm .gt_font_bold {
+  font-weight: bold;
+}
+
+#izqjfisjhm .gt_font_italic {
+  font-style: italic;
+}
+
+#izqjfisjhm .gt_super {
+  font-size: 65%;
+}
+
+#izqjfisjhm .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#izqjfisjhm .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#izqjfisjhm .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#izqjfisjhm .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#izqjfisjhm .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#izqjfisjhm .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#izqjfisjhm .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#izqjfisjhm .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#izqjfisjhm div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading header">
+<td colspan="3" class="gt_heading gt_title gt_font_normal" style="text-align: left; color: #000000; font-weight: bold;">Comparing Passer Rating and Passing Success Rating among Top 10 QBs</td>
+</tr>
+<tr class="gt_heading even">
+<td colspan="3" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style="text-align: left; color: #000000;">As of Week 15</td>
+</tr>
+<tr class="gt_col_headings header">
+<th id="Player" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-bottom-width: 3px; border-bottom-style: solid; border-bottom-color: #000000; font-size: 12; font-weight: bold" scope="col">Player</th>
+<th id="Succ%" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="border-bottom-width: 3px; border-bottom-style: solid; border-bottom-color: #000000; font-size: 12; font-weight: bold" scope="col">Passing Success Rating</th>
+<th id="Rate" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="border-bottom-width: 3px; border-bottom-style: solid; border-bottom-color: #000000; font-size: 12; font-weight: bold" scope="col">Passer Rating</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Player">Dak Prescott</td>
+<td class="gt_row gt_right" headers="Succ%">49.0</td>
+<td class="gt_row gt_right" headers="Rate">100.2</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Player">Drake Maye</td>
+<td class="gt_row gt_right" headers="Succ%">52.6</td>
+<td class="gt_row gt_right" headers="Rate">111.9</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Player">Patrick Mahomes</td>
+<td class="gt_row gt_right" headers="Succ%">47.9</td>
+<td class="gt_row gt_right" headers="Rate">91.2</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Player" style="background-color: #FF0000; color: #FFFFFF">Matthew Stafford</td>
+<td class="gt_row gt_right" headers="Succ%" style="background-color: #FF0000; color: #FFFFFF">55.0</td>
+<td class="gt_row gt_right" headers="Rate" style="background-color: #FF0000; color: #FFFFFF">113.1</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Player">Jared Goff</td>
+<td class="gt_row gt_right" headers="Succ%">50.3</td>
+<td class="gt_row gt_right" headers="Rate">110.2</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Player">Sam Darnold</td>
+<td class="gt_row gt_right" headers="Succ%">51.8</td>
+<td class="gt_row gt_right" headers="Rate">103.8</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Player">Daniel Jones</td>
+<td class="gt_row gt_right" headers="Succ%">52.0</td>
+<td class="gt_row gt_right" headers="Rate">100.2</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Player">Josh Allen</td>
+<td class="gt_row gt_right" headers="Succ%">49.9</td>
+<td class="gt_row gt_right" headers="Rate">102.9</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Player">Jordan Love</td>
+<td class="gt_row gt_right" headers="Succ%">51.0</td>
+<td class="gt_row gt_right" headers="Rate">105.4</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Player">Bo Nix</td>
+<td class="gt_row gt_right" headers="Succ%">45.3</td>
+<td class="gt_row gt_right" headers="Rate">86.4</td>
+</tr>
+</tbody><tfoot>
+<tr class="gt_sourcenotes odd">
+<td colspan="3" class="gt_sourcenote"><strong>By:</strong> Duke Rood | <strong>Source:</strong> Pro Football Reference</td>
+</tr>
+</tfoot>
+
+</table>
+
 </div>
 </div>
+</div>
+<p>As you can see, Stafford is the most efficient and effective passer in the league this year. His ability to protect the ball, while scoring at a high level at the most effective rate in the league makes it clear that he deserves MVP. I like to judge an MVP on if they take him off of the team, will they still perform at a high level. It appears that if you took Stafford off the Rams, the Rams lose a lot of their touchdowns, and the offense wouldn’t be performing nearly as well as they are this season. This is in large part thanks to Matthew Stafford’s historic MVP campaign.</p>
 
 
 
@@ -376,7 +1077,7 @@ $ GWD      &lt;dbl&gt; 3, 1, 1, 1, 2, 2, 3, 3, 4, 6</code></pre>
   <category>Matthew Stafford</category>
   <category>MVP</category>
   <guid>https://your-website-url.example.com/posts/Matthew-Stafford-is-MVP/</guid>
-  <pubDate>Wed, 03 Dec 2025 06:00:00 GMT</pubDate>
+  <pubDate>Mon, 08 Dec 2025 06:00:00 GMT</pubDate>
   <media:content url="https://your-website-url.example.com/posts/Matthew-Stafford-is-MVP/80357090007-64-666165.jpeg.webp" medium="image" type="image/webp"/>
 </item>
 <item>
